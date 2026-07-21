@@ -218,8 +218,7 @@
 &kp LSHIFT    &kp Z         &kp X         &kp C         &kp V         &kp B
 &kp LBKT      &kp RBKT      &kp N         &kp M         &kp COMMA     &kp DOT
 
-&kp LALT      &mo 1         &kp SPACE
-&kp ENTER     &mo 2         &mo 4
+&kp LALT      &mo 1         &kp SPACE     &kp ENTER     &mo 2         &mo 4
             >;
         };
 
@@ -241,8 +240,7 @@
 &kp UNDER      &kp PLUS     &kp COLON     &kp SEMI      &kp DQT       &kp SQT
 &kp HOME       &kp PG_DN    &kp PG_UP     &kp END       &kp INS       &trans
 
-&trans         &trans       &trans
-&trans         &trans       &trans
+&trans         &trans       &trans        &trans        &trans        &trans
             >;
         };
 
@@ -264,8 +262,7 @@
 &trans         &trans       &trans       &trans       &trans       &trans
 &trans         &trans       &trans       &trans       &trans       &trans
 
-&trans         &trans       &trans
-&trans         &trans       &trans
+&trans         &trans       &trans       &trans       &trans       &trans
             >;
         };
 
@@ -284,8 +281,7 @@
 &trans         &trans       &trans       &trans       &trans       &trans
 &trans         &trans       &trans       &trans       &trans       &trans
 
-&trans         &trans       &trans
-&trans         &trans       &trans
+&trans         &trans       &trans       &trans       &trans       &trans
             >;
         };
 
@@ -304,8 +300,7 @@
 &kp KP0         &kp KP_DOT       &kp KP_EQUAL   &trans          &trans &trans
 &trans          &trans           &trans         &trans          &trans &trans
 
-&trans          &trans           &trans
-&trans          &trans           &trans
+&trans          &trans           &trans         &trans          &trans &trans
             >;
         };
 
