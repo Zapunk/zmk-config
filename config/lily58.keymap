@@ -302,7 +302,7 @@
 &kp KP1         &kp KP2          &kp KP3         &kp KP_ENTER    &trans &trans
 
 &kp KP0         &kp KP_DOT       &kp KP_EQUAL   &trans          &trans &trans
-&trans          &trans           &trans
+&trans          &trans           &trans         &trans          &trans &trans
 
 &trans          &trans           &trans
 &trans          &trans           &trans
