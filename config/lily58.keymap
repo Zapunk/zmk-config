@@ -1,89 +1,30 @@
+/*
+ * ZMK keymap — Lily58 (54 keys used out of 58 matrix positions)
+ * Behaviors: homerow mods (hm), hold-tap number row (num_sym)
+ * Layers: base(0), symbols(1), nav(2), adjust(3, via tri-layer 1+2), numpad(4)
+ */
+
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/outputs.h>
-#include <physical_layouts.dtsi>
 
 / {
-    // PHYSICAL LAYOUT для ZMK Studio (54 клавиши)
-    chosen {
-        zmk,physical-layout = &lily58_layout;
-    };
-
-    lily58_layout: physical_layout_0 {
-        compatible = "zmk,physical-layout";
-        display-name = "Lily58 Layout";
-        keys  = <&key_physical_attrs 100 100 0 0>,  // 1
-                <&key_physical_attrs 100 100 0 0>,  // 2
-                <&key_physical_attrs 100 100 0 0>,  // 3
-                <&key_physical_attrs 100 100 0 0>,  // 4
-                <&key_physical_attrs 100 100 0 0>,  // 5
-                <&key_physical_attrs 100 100 0 0>,  // 6
-                <&key_physical_attrs 100 100 0 0>,  // 7
-                <&key_physical_attrs 100 100 0 0>,  // 8
-                <&key_physical_attrs 100 100 0 0>,  // 9
-                <&key_physical_attrs 100 100 0 0>,  // 10
-                <&key_physical_attrs 100 100 0 0>,  // 11
-                <&key_physical_attrs 100 100 0 0>,  // 12
-                <&key_physical_attrs 100 100 0 0>,  // 13
-                <&key_physical_attrs 100 100 0 0>,  // 14
-                <&key_physical_attrs 100 100 0 0>,  // 15
-                <&key_physical_attrs 100 100 0 0>,  // 16
-                <&key_physical_attrs 100 100 0 0>,  // 17
-                <&key_physical_attrs 100 100 0 0>,  // 18
-                <&key_physical_attrs 100 100 0 0>,  // 19
-                <&key_physical_attrs 100 100 0 0>,  // 20
-                <&key_physical_attrs 100 100 0 0>,  // 21
-                <&key_physical_attrs 100 100 0 0>,  // 22
-                <&key_physical_attrs 100 100 0 0>,  // 23
-                <&key_physical_attrs 100 100 0 0>,  // 24
-                <&key_physical_attrs 100 100 0 0>,  // 25
-                <&key_physical_attrs 100 100 0 0>,  // 26
-                <&key_physical_attrs 100 100 0 0>,  // 27
-                <&key_physical_attrs 100 100 0 0>,  // 28
-                <&key_physical_attrs 100 100 0 0>,  // 29
-                <&key_physical_attrs 100 100 0 0>,  // 30
-                <&key_physical_attrs 100 100 0 0>,  // 31
-                <&key_physical_attrs 100 100 0 0>,  // 32
-                <&key_physical_attrs 100 100 0 0>,  // 33
-                <&key_physical_attrs 100 100 0 0>,  // 34
-                <&key_physical_attrs 100 100 0 0>,  // 35
-                <&key_physical_attrs 100 100 0 0>,  // 36
-                <&key_physical_attrs 100 100 0 0>,  // 37
-                <&key_physical_attrs 100 100 0 0>,  // 38
-                <&key_physical_attrs 100 100 0 0>,  // 39
-                <&key_physical_attrs 100 100 0 0>,  // 40
-                <&key_physical_attrs 100 100 0 0>,  // 41
-                <&key_physical_attrs 100 100 0 0>,  // 42
-                <&key_physical_attrs 100 100 0 0>,  // 43
-                <&key_physical_attrs 100 100 0 0>,  // 44
-                <&key_physical_attrs 100 100 0 0>,  // 45
-                <&key_physical_attrs 100 100 0 0>,  // 46
-                <&key_physical_attrs 100 100 0 0>,  // 47
-                <&key_physical_attrs 100 100 0 0>,  // 48
-                <&key_physical_attrs 100 100 0 0>,  // 49
-                <&key_physical_attrs 100 100 0 0>,  // 50
-                <&key_physical_attrs 100 100 0 0>,  // 51
-                <&key_physical_attrs 100 100 0 0>,  // 52
-                <&key_physical_attrs 100 100 0 0>,  // 53
-                <&key_physical_attrs 100 100 0 0>;  // 54
-    };
-    
     behaviors {
-
-        num_sym: number_symbol {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            flavor = "tap-preferred";
-            bindings = <&kp>, <&kp>;
-        };
 
         hm: homerow_mods {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             tapping-term-ms = <170>;
             flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        num_sym: number_symbol {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <170>;
+            flavor = "tap-preferred";
             bindings = <&kp>, <&kp>;
         };
 
@@ -204,112 +145,98 @@
 
 
         base_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ESC  |  1/!  |  2/@ |  3/#  |  4/$  |  5/%  |                   |  6/^  |  7/&  |  8/*  |  9/( |  0/)  | BSPC |
+            // |  TAB  |   Q   |   W  |   E   |   R   |   T   |                   |   Y   |   U   |   I   |  O   |   P   | \    |
+            // | CTRL  |A/Ctrl |S/Alt |D/Gui  |F/Shift|   G   |                   |   H   |J/Shift|K/Gui  |L/Alt |;/Ctrl | '    |
+            // | SHIFT |   Z   |   X  |   C   |   V   |   B   |  n/a   |  |  n/a  |  [    |   ]   |   N   |  M   |   ,   |  .   |
+            //                        |  ALT  |  SYM  | SPACE |  n/a   |  |  n/a  | ENTER |  NAV  |  NUM  |
+            // Note: hold digit -> shifted symbol (e.g. hold 1 -> "!", tap 1 -> "1")
 
             display-name = "Base";
-
-            bindings = <
-&kp ESC          &num_sym EXCL N1   &num_sym AT N2     &num_sym HASH N3   &num_sym DLLR N4   &num_sym PRCNT N5
-&num_sym CARET N6 &num_sym AMPS N7  &num_sym STAR N8   &num_sym LPAR N9   &num_sym RPAR N0   &kp BSPC
-
-&kp TAB       &kp Q         &kp W         &kp E         &kp R         &kp T
-&kp Y         &kp U         &kp I         &kp O         &kp P         &kp BSLH
-
-&kp LCTRL     &hm LCTRL A   &hm LALT S    &hm LGUI D    &hm LSHIFT F  &kp G
-&kp H         &hm RSHIFT J  &hm RGUI K    &hm RALT L    &hm RCTRL SEMI &kp SQT
-
-&kp LSHIFT    &kp Z         &kp X         &kp C         &kp V         &kp B
-&kp LBKT      &kp RBKT      &kp N         &kp M         &kp COMMA     &kp DOT
-
-&kp LALT      &mo 1         &kp SPACE     &kp ENTER     &mo 2         &mo 4
+            bindings = 
+&kp ESC        &num_sym EXCL N1  &num_sym AT N2  &num_sym HASH N3  &num_sym DLLR N4   &num_sym PRCNT N5                          &num_sym CARET N6  &num_sym AMPS N7  &num_sym STAR N8  &num_sym LPAR N9  &num_sym RPAR N0  &kp BSPC
+&kp TAB        &kp Q             &kp W           &kp E             &kp R              &kp T                                      &kp Y              &kp U             &kp I             &kp O             &kp P             &kp BSLH
+&kp LCTRL      &hm LCTRL A       &hm LALT S      &hm LGUI D        &hm LSHIFT F       &kp G                                      &kp H              &hm RSHIFT J      &hm RGUI K        &hm RALT L        &hm RCTRL SEMI    &kp SQT
+&kp LSHIFT     &kp Z             &kp X           &kp C             &kp V              &kp B       &none                  &none   &kp LBKT           &kp RBKT          &kp N             &kp M             &kp COMMA         &kp DOT
+                                                 &kp LALT          &mo 1              &kp SPACE   &none                  &none   &kp ENTER          &mo 2             &mo 4
             >;
         };
 
 
         symbols_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |   `   |  F1  |  F2  |  F3   |  F4   |  F5   |                   |  F6   |  F7   |  F8   |  F9  |  F10  | DEL  |
+            // |   ~   |  !   |  @   |  #    |  $    |  %    |                   |  ^    |  &    |  *    |  (   |  )    | F11  |
+            // |   -   |  =   |  {   |  }    |  [    |  ]    |                   |  <    |  >    |  |    |  \   |  `    | F12  |
+            // |   _   |  +   |  :   |  ;    |  "    |  '    |  n/a   |  |  n/a  | HOME  | PGDN  | PGUP  | END  | INS   | ---  |
+            //                       |  ---  |  ---  |  ---  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  |
 
             display-name = "Symbols";
-
-            bindings = <
-&kp GRAVE     &kp F1        &kp F2        &kp F3        &kp F4        &kp F5
-&kp F6         &kp F7        &kp F8        &kp F9        &kp F10       &kp DEL
-
-&kp TILDE      &kp EXCL     &kp AT        &kp HASH      &kp DLLR      &kp PRCNT
-&kp CARET      &kp AMPS     &kp STAR      &kp LPAR      &kp RPAR      &kp F11
-
-&kp MINUS      &kp EQUAL    &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT
-&kp LT         &kp GT       &kp PIPE      &kp BSLH      &kp GRAVE     &kp F12
-
-&kp UNDER      &kp PLUS     &kp COLON     &kp SEMI      &kp DQT       &kp SQT
-&kp HOME       &kp PG_DN    &kp PG_UP     &kp END       &kp INS       &trans
-
-&trans         &trans       &trans        &trans        &trans        &trans
+            bindings = 
+&kp GRAVE      &kp F1        &kp F2        &kp F3        &kp F4        &kp F5                              &kp F6         &kp F7      &kp F8      &kp F9       &kp F10      &kp DEL
+&kp TILDE      &kp EXCL      &kp AT        &kp HASH      &kp DLLR      &kp PRCNT                           &kp CARET      &kp AMPS    &kp STAR    &kp LPAR     &kp RPAR     &kp F11
+&kp MINUS      &kp EQUAL     &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT                            &kp LT         &kp GT      &kp PIPE    &kp BSLH     &kp GRAVE    &kp F12
+&kp UNDER      &kp PLUS      &kp COLON     &kp SEMI      &kp DQT       &kp SQT    &none            &none   &kp HOME       &kp PG_DN   &kp PG_UP   &kp END      &kp INS      &trans
+                                           &trans        &trans        &trans     &none            &none   &trans         &trans      &trans
             >;
         };
 
 
         nav_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |  ---  | ---  | ---  |  ---  |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  ---  | ---  | ---  |  ---  |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // | CMD A | COPY |PASTE |COPY_T |PASTE_T|  ---  |                   | HOME  |  UP   | END   | INS  |  ---  | ---  |
+            // |ALT<-  | LEFT | DOWN | RIGHT | DEL   |ALT->  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            //                       |  ---  |  ---  |  ---  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  |
 
             display-name = "Navigation";
-
-            bindings = <
-&trans         &trans       &trans       &trans       &trans       &trans
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&cmd_a         &copy         &paste       &copy_terminal &paste_terminal &trans
-&kp HOME       &kp UP        &kp END      &kp INS      &trans       &trans
-
-&alt_left      &kp LEFT      &kp DOWN     &kp RIGHT    &kp DEL      &alt_right
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&trans         &trans       &trans       &trans       &trans       &trans
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&trans         &trans       &trans       &trans       &trans       &trans
+            bindings = 
+&trans         &trans        &trans        &trans          &trans           &trans                        &trans         &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &trans        &trans          &trans           &trans                        &trans         &trans      &trans      &trans       &trans       &trans
+&cmd_a         &copy         &paste        &copy_terminal  &paste_terminal  &trans                        &kp HOME       &kp UP      &kp END     &kp INS      &trans       &trans
+&alt_left      &kp LEFT      &kp DOWN      &kp RIGHT       &kp DEL          &alt_right  &none     &none   &trans         &trans      &trans      &trans       &trans       &trans
+                                           &trans          &trans           &trans      &none     &none   &trans         &trans      &trans
             >;
         };
 
 
         adjust_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // |BT_CLR |BT_SEL0|BT_SEL1|BT_SEL2|BT_SEL3|BT_SEL4|                  |OUT_TOG| ---  |  ---  | ---  |  ---  | ---  |
+            // |RESET  | BOOT |  ---  |  ---  |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  ---  | ---  |  ---  |  ---  |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  ---  | ---  |  ---  |  ---  |  ---  |  ---  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            //                       |  ---  |  ---  |  ---  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  |
+            // Reached via tri-layer: hold layers 1(Symbols)+2(Nav) together
 
             display-name = "Adjust";
-
-            bindings = <
-&bt BT_CLR     &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4
-&out OUT_TOG   &trans       &trans       &trans       &trans       &trans
-
-&sys_reset     &bootloader  &trans       &trans       &trans       &trans
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&trans         &trans       &trans       &trans       &trans       &trans
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&trans         &trans       &trans       &trans       &trans       &trans
-&trans         &trans       &trans       &trans       &trans       &trans
-
-&trans         &trans       &trans       &trans       &trans       &trans
+            bindings = 
+&bt BT_CLR     &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4                        &out OUT_TOG   &trans      &trans      &trans       &trans       &trans
+&sys_reset     &bootloader   &trans        &trans        &trans        &trans                              &trans         &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &trans        &trans        &trans        &trans                              &trans         &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &trans        &trans        &trans        &trans     &none            &none   &trans         &trans      &trans      &trans       &trans       &trans
+                                           &trans        &trans        &trans     &none            &none   &trans         &trans      &trans
             >;
         };
 
 
         numpad_layer {
+            // ------------------------------------------------------------------------------------------------------------
+            // | NUM   |  /   |  *   |  -    |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  7    |  8   |  9   |  +    |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  4    |  5   |  6   |  ---  |  ---  |  ---  |                   |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            // |  1    |  2   |  3   | ENTER |  ---  |  ---  |  n/a   |  |  n/a  |  ---  |  ---  |  ---  | ---  |  ---  | ---  |
+            //                       |  0    |  .    |  =    |  n/a   |  |  n/a  |  ---  |  ---  |  ---  |
 
             display-name = "NumPad";
-
-            bindings = <
-&kp KP_NUM      &kp KP_DIVIDE    &kp KP_MULTIPLY &kp KP_SUBTRACT &trans &trans
-&trans          &trans           &trans          &trans          &trans &trans
-
-&kp KP_N7       &kp KP_N8        &kp KP_N9       &kp KP_PLUS     &trans &trans
-&trans          &trans           &trans          &trans          &trans &trans
-
-&kp KP_N4       &kp KP_N5        &kp KP_N6       &trans          &trans &trans
-&trans          &trans           &trans          &trans          &trans &trans
-
-&kp KP_N1       &kp KP_N2        &kp KP_N3       &kp KP_ENTER    &trans &trans
-&trans          &trans           &trans          &trans          &trans &trans
-
-&kp KP_N0       &kp KP_DOT       &kp KP_EQUAL    &trans          &trans &trans
-
+            bindings = 
+&kp KP_NUM     &kp KP_DIVIDE &kp KP_MULTIPLY &kp KP_SUBTRACT &trans        &trans                          &trans         &trans      &trans      &trans       &trans       &trans
+&kp KP_N7      &kp KP_N8     &kp KP_N9       &kp KP_PLUS     &trans        &trans                          &trans         &trans      &trans      &trans       &trans       &trans
+&kp KP_N4      &kp KP_N5     &kp KP_N6       &trans          &trans        &trans                          &trans         &trans      &trans      &trans       &trans       &trans
+&kp KP_N1      &kp KP_N2     &kp KP_N3       &kp KP_ENTER    &trans        &trans       &none      &none   &trans         &trans      &trans      &trans       &trans       &trans
+                                             &kp KP_N0       &kp KP_DOT    &kp KP_EQUAL &none      &none   &trans         &trans      &trans
             >;
         };
 
