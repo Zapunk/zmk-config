@@ -235,7 +235,7 @@
 &kp CARET      &kp AMPS     &kp STAR      &kp LPAR      &kp RPAR      &kp F11
 
 &kp MINUS      &kp EQUAL    &kp LBRC      &kp RBRC      &kp LBKT      &kp RBKT
-&kp LESS       &kp GREATER  &kp PIPE      &kp BSLH      &kp GRAVE     &kp F12
+&kp LT         &kp GT       &kp PIPE      &kp BSLH      &kp GRAVE     &kp F12
 
 &kp UNDER      &kp PLUS     &kp COLON     &kp SEMI      &kp DQT       &kp SQT
 &kp HOME       &kp PG_DN    &kp PG_UP     &kp END       &kp INS       &trans
