@@ -232,11 +232,11 @@
 
             display-name = "NumPad";
             bindings = <
-&trans         &trans        &kp KP_NUM_LOCK &kp KP_DIVIDE &kp KP_MULTIPLY  &kp KP_SUBTRACT                   &trans         &trans      &trans      &trans       &trans       &trans
-&trans         &trans        &kp KP_N7       &kp KP_N8     &kp KP_N9        &kp KP_PLUS                       &trans         &trans      &trans      &trans       &trans       &trans
-&trans         &trans        &kp KP_N4       &kp KP_N5     &kp KP_N6        &trans                            &trans         &trans      &trans      &trans       &trans       &trans
-&trans         &trans        &kp KP_N1       &kp KP_N2     &kp KP_N3        &kp KP_ENTER   &none      &none   &trans         &trans      &trans      &trans       &trans       &trans
-                                             &kp KP_N0     &kp KP_DOT       &kp KP_EQUAL   &none      &none   &trans         &trans      &trans
+&trans         &trans        &kp KP_NUM      &kp KP_DIVIDE  &kp KP_MULTIPLY  &kp KP_SUBTRACT                   &trans       &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &kp KP_N7       &kp KP_N8      &kp KP_N9        &kp KP_PLUS                       &trans       &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &kp KP_N4       &kp KP_N5      &kp KP_N6        &trans                            &trans       &trans      &trans      &trans       &trans       &trans
+&trans         &trans        &kp KP_N1       &kp KP_N2      &kp KP_N3        &kp KP_ENTER   &none      &none   &trans       &trans      &trans      &trans       &trans       &trans
+                                             &kp KP_N0      &kp KP_DOT       &kp KP_EQUAL   &none      &none   &trans       &trans      &trans
             >;
         };
 
